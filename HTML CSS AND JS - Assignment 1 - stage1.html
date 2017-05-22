@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stage 1 - pure HTML</title>
+</head>
+<body>
+ <h1 id="dating"> Please Enter Your Details For Our Dating Website</h1>
+
+<form method="post" enctype="multipart/form-data"
+      action="https://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php">
+
+    <fieldset class="fieldsets">
+
+        <legend>Your Face </legend>
+        <label for="avatar" class="labels">Your image:</label>
+        <input type="file" id="avatar" name="avatar" required>
+        <br>
+        <label for="preview" class="labels">Image Preview:</label>
+        <img src="" id="preview" alt="Oops! Seems like JS had trouble with that image! Please, try again!">
+
+    </fieldset>
+
+    <fieldset class="fieldsets">
+
+        <legend>Your General Details </legend>
+        <label for="name" class="labels">Name:</label>
+        <input type="text" name="name" id="name" placeholder="Your full name" required>
+
+        <br>
+        <label class="labels"> Gender: </label>
+        <input type="radio" id="Male" name="gender" required> <label for="Male" class="labels optLabels"> Male</label>
+        <input type="radio" id="Female" name="gender" required> <label for="Female" class="labels optLabels">Female</label>
+
+        <br>
+        <label class="labels" for="age">Age:</label>
+        <input type="number" name="age" id="age" value="18" required>
+
+        <br>
+        <label class="labels" for="DoB"> Date of Birth: </label>
+        <input type="date" name="bday" id="DoB">
+
+        <br>
+        <label class="labels" for="favColor"> Favorite color: </label>
+        <input type="color" name="favcolor" id="favColor">
+
+        <br>
+        <label class="labels" for="country"> Which Country: </label>
+        <select name="country" id="country">
+            <option value="bg">Bulgaria</option>
+            <option value="srb">Serbia</option>
+            <option value="trk">Turkmenistan</option>
+            <option value="tgk">Tajikistan</option>
+            <option value="ppng">Papua New Guinea </option>
+            <option value="nsc">Neither of these </option>
+        </select>
+
+    </fieldset>
+
+    <fieldset class="fieldsets">
+
+        <legend>Your Indicators </legend>
+        <label class="labels" for="height" id="align1"> Height: <span id="paint1"> Short</span> </label>
+        <input type="range" name="height" id="height" min="0" max="100" step="5">
+        <label class="labels" for="height" id="paint3"> Tall </label>
+        <br>
+        <label class="labels" for="richness" id="align2"> Salary: <span id="paint2"> Poor </span> </label>
+        <input type="range" name="richness" id="richness" min="0" max="100" step="5">
+        <label class="labels" for="richness" id="paint4"> Rich </label>
+    </fieldset>
+
+    <fieldset class="fieldsets">
+
+        <legend>Your Contact Information </legend>
+        <label class="labels" for="mail"> Email: </label>
+        <input type="email" maxlength="50" id="mail" required>
+        <br>
+        <label class="labels" for="mobile"> Mobile: </label>
+        <input type="tel" maxlength="30" id="mobile">
+        <!--
+        For right now this makes no sense, but it could be validated with regex in JS!
+        -->
+        <br>
+
+        <label class="labels" for="address"> Address: </label>
+        <textarea rows="2" cols="20" id = "address" name="address"> </textarea>
+        <br>
+        <label class="labels" >Method to contact you: </label>
+        <input type="checkbox" id="email"> <label for="email" class="labels optLabels"> Email</label>
+        <input type="checkbox" id="whatsapp"> <label for="whatsapp" class="labels optLabels"> Whatsapp</label>
+        <input type="checkbox" id="iac"> <label for="iac" class="labels optLabels"> In-app chat</label>
+    </fieldset>
+
+    <input type="submit" value="Submit!">
+</form>
+
+</body>
+</html>
