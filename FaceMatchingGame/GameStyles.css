@@ -1,0 +1,137 @@
+body {
+    background-image: url("http://www.hdwallpapers.in/walls/3d_cubes-HD.jpg");
+    background-size:cover;
+}
+.starter {
+    font-family: "Bookman Old Style";
+    font-size: 46pt;
+    color: snow;
+    border: 1px solid snow;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 5px;
+    position: absolute;
+    margin-top: 30%;
+    margin-left: 41.5%;
+    background-image: linear-gradient(#032E37, #032E37);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 0 100%;
+    transition: background-size .5s, color .5s;
+    opacity: 0.8;
+    cursor: pointer;
+}
+.starter:hover {
+    background-size: 100% 100%;
+    color: #e2cb32;
+    opacity: 1;
+}
+#clickableAwesomeFont {
+    cursor: pointer;
+    position: absolute;
+    width: 250px;
+    margin-top: 50%;
+
+}
+i {
+    color: snow;
+    position: absolute;
+    opacity: 0.3;
+}
+.sweet-alert {
+    background-color: #e2cb32;
+    color: white;
+    opacity: 0.95;
+}
+.sweet-alert .sa-icon.sa-info::before {
+    background-color: #032E37;
+}
+.sweet-alert .sa-icon.sa-info::after {
+    background-color: #032E37;
+}
+.sweet-alert .sa-icon.sa-info {
+    border-color: #032E37;
+}
+.sweet-alert h2 {
+    color: #032E37;
+}
+.sweet-alert p {
+    color: #032E37;
+}
+.gameStarter {
+    width: 75px;
+    height: auto;
+    padding-left: 20px;
+}
+#emojiContainer{
+    position: absolute;
+    margin-left: 35%;
+    margin-top: 23%;
+}
+#displayCredits {
+    cursor: pointer;
+    position: absolute;
+    display: inline-block;
+    margin-top: 50%;
+    margin-left: 82%;
+}
+#emojiPicker {
+    position: absolute;
+    color: white;
+    opacity: 0.7;
+    font-family: "Bell MT";
+    font-size: 46pt;
+    display: inline-block;
+    margin-top: 30%;
+    margin-left: 25%;
+}
+.gameStarter {
+    cursor: pointer;
+}
+.svg-container {
+    position: absolute;
+    top: 15%;
+    left: 49%;
+    width: 50px;
+    height: 50px;
+    visibility: hidden;
+    opacity: 0.65;
+}
+#leftSide {
+    position: absolute;
+    width: 49%;
+    height: 71%;
+    margin-top: 10%;
+    visibility: hidden;
+}
+#rightSide {
+    position: absolute;
+    width: 49%;
+    height: 71%;
+    margin-top: 10%;
+    margin-left: 50%;
+    visibility: hidden;
+}
+#leftText {
+    position: absolute;
+    color: snow;
+    opacity: 0.65;
+    font-family: "Bell MT";
+    font-size: 35pt;
+    margin-top: 7%;
+    margin-left: 17%;
+    visibility: hidden;
+}
+#rightText {
+    position: absolute;
+    color: snow;
+    opacity: 0.65;
+    font-family: "Bell MT";
+    font-size: 35pt;
+    margin-top: 7%;
+    margin-left: 68%;
+    visibility: hidden;
+}
+#emojiContainer{
+    visibility: hidden;
+}

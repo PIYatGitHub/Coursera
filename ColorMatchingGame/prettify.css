@@ -1,0 +1,50 @@
+body {
+    background-image: url("http://www.nationalgeographic.com/content/dam/photography/photos/000/013/1399.ngsversion.1467942034668.adapt.1900.1.jpg");
+    background-size:cover;
+}
+.starter {
+    font-family: "Bookman Old Style";
+    font-size: 26pt;
+    color: #032E37;
+    border: 1px solid #032E37;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 5px;
+    position: absolute;
+    margin-top: 30%;
+    margin-left: 45%;
+    background-image: linear-gradient(#032E37, #032E37);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 0 100%;
+    transition: background-size .5s, color .5s;
+    cursor: pointer;
+}
+.starter:hover {
+    background-size: 100% 100%;
+    color: #b2f4ef;
+}
+#natGeo{
+    margin-left:70%;
+    margin-top: 52%;
+    color: rgba(60, 0, 22, 0.95);
+    position: absolute;
+    font-family: "Bell MT";
+    font-size: 18pt;}
+i {
+    color: snow;
+    margin-top: 51%;
+    position: absolute;
+}
+#colorGuess {
+    position: absolute;
+    margin-top: 10%;
+    margin-left: 26%;
+    font-family: "Bell MT";
+    font-size: 35pt;
+    color: rgba(10, 37, 47, 0.72)
+}
+#clickableAwesomeFont {
+    cursor: pointer
+
+}
