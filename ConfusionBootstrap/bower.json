@@ -1,0 +1,27 @@
+{
+  "name": "conFusion",
+  "authors": [
+    "Peter Yonkov <10vpetyryonkov@gmail.com>"
+  ],
+  "description": "training website",
+  "main": "index.html",
+  "keywords": [
+    "conFusion",
+    "website",
+    "JS",
+    "Css"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "fontawesome#^4.7.0"
+  }
+}
