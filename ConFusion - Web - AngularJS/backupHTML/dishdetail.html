@@ -1,0 +1,228 @@
+
+
+<!DOCTYPE html>
+<html lang="en" ng-app="confusionApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head
+         content must come *after* these tags -->
+    <title>Ristorante Con Fusion: Menu</title>
+    <!-- Bootstrap -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="styles/bootstrap-social.css" rel="stylesheet">
+    <link href="styles/mystyles.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="container">
+    <div class="row row-content" ng-controller="DishDetailController">
+        <div class="col-xs-12">
+
+            <div class="media">
+
+                <div class="media-left media-middle">
+                    <a href="#">
+                        <img class="media-object img-thumbnail"
+                             ng-src={{dish.image}} alt="Dish Image">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h2 class="media-heading">{{dish.name}}
+                        <span class="label label-danger">{{dish.label}}</span>
+                        <span class="badge">{{dish.price | currency}}</span></h2>
+                    <p>{{dish.description}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-xs-offset-1">
+
+            <form class="form-inline">
+                <div class="form-group">
+                    <h2> Customer comments </h2>
+                </div>
+                <div class="form-group col-xs-offset-1">
+
+                    <label for="searchCreiteria" style="color: #777777;"> Sort by: </label>
+
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' class="form-control" id="searchCreiteria" ng-model="searchBy" />
+                        <span class="input-group-addon" style="cursor: pointer" onclick="createAlert();">
+                        <span class="glyphicon glyphicon-question-sign"></span>
+                    </span>
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+        <div id="alertDiv">
+        </div>
+
+        <div class="col-xs-9 col-xs-offset-1">
+            <ul class="list-unstyled">
+                <li ng-repeat="newComment in dish.comments | orderBy: searchBy" >
+                    <blockquote class="blockquote">
+                        <p> {{newComment.rating + " Stars"}} </p>
+                        <p>
+                            {{newComment.comment}}
+                        </p>
+
+                        <footer>
+                            <cite>
+                                <!-- added a comma and this is the correct format for the date filter-->
+                                {{newComment.author + ", "}} {{newComment.date|date:"MMM.dd.yyyy"}}
+                            </cite>
+                        </footer>
+                    </blockquote>
+                </li>
+            </ul>
+
+        </div>
+        <div class="col-xs-9 col-xs-offset-1" ng-controller="DishCommentController">
+            <ul class="list-unstyled">
+                <li>
+                    <blockquote class="blockquote" ng-show="commentForm.inputName.$dirty || commentForm.textComment.$dirty">
+                        <p> {{formComment.rating + " Stars"}} </p>
+                        <p>
+                            {{formComment.comment}}
+                        </p>
+
+                        <footer>
+                            <cite>
+                                <!-- added a comma and this is the correct format for the date filter-->
+                                {{formComment.author + ", "}} {{formComment.date|date:"MMM.dd.yyyy"}}
+                            </cite>
+                        </footer>
+                    </blockquote>
+                </li>
+
+            </ul>
+
+
+            <form class="form-horizontal" role="form" ng-submit="submitComment()" name="commentForm" novalidate>
+                <div class="form-group" ng-class="{'has-error' : commentForm.inputName.$error.required &&
+                !commentForm.inputName.$pristine}">
+                    <label for="inputName" class="col-sm-2 control-label">Your Name</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="inputName" placeholder="Name" name="inputName"
+                               ng-model="formComment.author" required>
+                        <span ng-show="commentForm.inputName.$error.required &&
+                    !commentForm.inputName.$pristine" class="help-block">
+                        Your name is required.</span>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label for="opt5" class="col-sm-2 control-label">Number of Stars</label>
+                    <div class="col-sm-4">
+
+                        <label class="radio-inline"><input type="radio" name="optradio" id="opt1" ng-model="formComment.rating" ng-value="1">1</label>
+                        <label class="radio-inline"><input type="radio" name="optradio" id="opt2" ng-model="formComment.rating" ng-value="2">2</label>
+                        <label class="radio-inline"><input type="radio" name="optradio" id="opt3" ng-model="formComment.rating" ng-value="3">3</label>
+                        <label class="radio-inline"><input type="radio" name="optradio" id="opt4" ng-model="formComment.rating" ng-value="4">4</label>
+                        <label class="radio-inline"><input type="radio" name="optradio" id="opt5" ng-model="formComment.rating" ng-value="5">5</label>
+
+                    </div>
+                </div>
+
+                <div class="form-group" ng-class="{'has-error' : commentForm.textComment.$error.required &&
+                !commentForm.textComment.$pristine}">
+                    <label for="textComment" class="col-sm-2 control-label">Your Comments</label>
+                    <div class="col-sm-6">
+                         <textarea class="form-control" rows="8" id="textComment" name="textComment"
+                                   ng-model="formComment.comment" required>
+                            </textarea>
+                        <span ng-show="commentForm.textComment.$error.required &&
+                    !commentForm.textComment.$pristine" class="help-block">
+                        Your comment is required.</span>
+
+                    </div>
+                    <!-- {'has error' : commentForm.comment.$error.required &&
+                   !commentForm.comment.$pristine}
+                   -->
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary"
+                                ng-disabled="commentForm.$invalid">Submit Comment</button>
+                    </div>
+                </div>
+
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script src="../bower_components/angular/angular.min.js"></script>
+<script src="scripts/app.js"> </script>
+<script type="text/javascript">
+    var isShown=false;
+    function createAlert() {
+        if(!isShown){
+            var alertDiv=document.getElementById("alertDiv");
+            alertDiv.setAttribute("class", "col-xs-6 col-xs-offset-5");
+            alertDiv.setAttribute("style", "visibility:visible");
+
+
+
+
+            // |date:"MMM.dd.yyyy"
+
+
+            var al = document.createElement("DIV");
+            al.setAttribute("class", "alert alert-info alert-dismissible");
+            al.setAttribute("role", "alert");
+            var btnC = document.createElement("button");
+            btnC.setAttribute("type", "button");
+            btnC.setAttribute("class", "close");
+//btnC.setAttribute("data-dismiss", "alert");
+//btnC.setAttribute("aria-label", "Close");
+            btnC.setAttribute("style", "cursor:pointer");
+            btnC.setAttribute("onclick", "document.getElementById('alertDiv').setAttribute('class', 'collapse'); deleteAlert();");
+            var span1 = document.createElement("span");
+            span1.setAttribute("aria-hidden", "true");
+            span1.innerHTML="&times;";
+            var h4 = document.createElement("h4");
+            h4.innerHTML="Type in any of the following:";
+            var para1 = document.createElement("p");
+            para1.innerHTML="author or - author, date or -date and rating or -rating";
+            btnC.appendChild(span1);
+            al.appendChild(btnC);
+            al.appendChild(h4);
+            al.appendChild(para1);
+            alertDiv.appendChild(al);
+            isShown=true
+        }
+
+    }
+
+    function deleteAlert() {
+        var alertDiv=document.getElementById("alertDiv");
+        alertDiv.innerHTML='';
+        isShown=false
+    }
+
+</script>
+
+<script src="scripts/controllers.js"> </script>
+
+<script src="scripts/services.js"> </script>
+</body>
+
+</html>
